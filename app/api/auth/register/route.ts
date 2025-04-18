@@ -4,7 +4,7 @@ import { resolve } from "@/lib/core";
 import { withHttpException } from "@/lib/middlewares";
 import { HttpStatus } from "@/lib/exceptions/http-status.enum";
 
-import { UsersService } from "../users.service";
+import { UsersService } from "../../users/users.service";
 
 export const GET = withHttpException(
   async (

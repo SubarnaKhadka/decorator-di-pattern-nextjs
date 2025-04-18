@@ -1,3 +1,3 @@
 export * from "./protected";
-export * from "./vallidate";
+export * from "./validate";
 export * from "./http-exception";

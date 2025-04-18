@@ -1,13 +1,9 @@
-import { db } from "@/db";
-import { Injectable } from "@/lib/core";
-import { activityLogs } from "@/db/schema/activityLogs";
+import { z } from "zod";
 
-import { ActivityLog } from "./activity-logs.validation";
+export const activityLogsSchema = z.object({
+  userId: z.number({ message: "User Id is required" }),
+  action: z.string({ message: "Action is required" }),
+  ipAdress: z.string().ip().optional(),
+});
 
-@Injectable()
-export class ActivityLogsService {
-  public constructor() {}
-  async createActivityLog(activityLog: ActivityLog) {
-    await db.insert(activityLogs).values(activityLog);
-  }
-}
+export type ActivityLog = z.infer<typeof activityLogsSchema>;
